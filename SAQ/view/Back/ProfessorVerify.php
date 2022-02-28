@@ -17,7 +17,7 @@ $PassCheck = mysqli_query($conn,$sqlPass);
 if(mysqli_num_rows($IDcheck) > 0 && mysqli_num_rows($PassCheck) > 0){
 		$_SESSION["ProfessorID"] = $name;
 		$_SESSION["Password"] = $Pass;
-		header("location: ../ProfessorModel.html");
+		header("location: ../ProfessorModel.php");
 }
 else{
 	echo " wrong ID";
