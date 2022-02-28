@@ -4,16 +4,7 @@
  <?php $name = $_POST["Pname"];
 $Pass = $_POST["pass"]; ?>
  <?php
-$servername = "localhost";
-$username = "root";
-$password = "1234";
-$db = "saq";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+ include 'DatabaseAccess.php';
 //this will be replace with an input statment
 $ProfessorNum = $name;
 $password = $Pass;
