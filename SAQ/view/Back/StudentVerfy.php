@@ -13,6 +13,7 @@ $sqlID = "SELECT StudentID From Student where StudentID = ". $studentNum;
 $IDcheck = mysqli_query($conn, $sqlID);
 if(mysqli_num_rows($IDcheck) > 0){
 		$_SESSION["StudentID"] = $name;
+		
 		header("location: ../StudentModel.php");
 }
 else{

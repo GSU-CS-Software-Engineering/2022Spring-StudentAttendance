@@ -48,22 +48,24 @@ body {
 </style>
 </head>
 <body>
-<?php include 'Back/DatabaseAccess.php';?>
+<?php include 'Back/DatabaseAccess.php';
+	  include 'Back/Attendance.php';?>
 <div class="sidenav">
   <a href="#Quiz">Quiz</a>
   <a href="#Notes">Notes</a>
-  <a href="#Grades">Grades</a>
+  <a href="#Grades">Grades</a>  
+  <a href='Back/StudentLogout.php' class = "block">Logout</button></a>
   <p> &nbsp;&nbsp;&nbsp;</p>
   <img src="GSUsymbol.jpg" width="100" height="100">
 </div>
 
 <div class="main">
-  <h2>Welcome<?Php
+  <h2>Welcome,<?Php
   $sqlName = $_SESSION["StudentID"]." ";
-  $name = $sqlName;
-   print $name; 
+  $Sname = $sqlName;
+   print $Sname; 
 ?></h2>
-
+ <button onclick="Hello()" class = "block">Im here</button>
 </div>
    
 </body>
