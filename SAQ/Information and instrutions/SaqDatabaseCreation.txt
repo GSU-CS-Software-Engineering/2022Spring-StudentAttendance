@@ -7,6 +7,7 @@ StudentID int unique,
 StudentFName varchar(100),
 StudentLName varchar(100),
 Avg int,
+Attendence int,
 Primary Key(StudentID));
 ------------------------
 create table Professor(
