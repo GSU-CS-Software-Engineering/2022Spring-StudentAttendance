@@ -69,7 +69,7 @@ body {
     <div id="qrcode"></div>
 
     <script type="text/javascript">
-    new QRCode(document.getElementById("qrcode"), "https://saq-trailrun.herokuapp.com/studentLogin.html");
+    new QRCode(document.getElementById("qrcode"), "https://saq-trailrun.herokuapp.com/studentLogin.php");
     </script>
     <style>
     body {background-color: powderblue;}
