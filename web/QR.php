@@ -35,6 +35,12 @@ body {
   background:  radial-gradient(circle at top left, blue 10px, white 11px);
 }
 
+h2 {
+  margin-left: 160px; 
+  font-size: 28px; 
+  padding: 0px 10px;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
