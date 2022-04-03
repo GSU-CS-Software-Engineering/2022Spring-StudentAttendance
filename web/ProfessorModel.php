@@ -65,7 +65,7 @@ body {
 <!--this is for view grades of all student-->
   <a href="#Grades">Grades</a>
 <!-- this is a button that create  a qr code-->
-    <a href="#Qr">Qr code</a>
+    <a href="QR.php">QR code</a>
   <a href="#create">CreatePS</a>
   <!-- change href to a php that cancels the session for php-->
   <a href='index.php' class = "block">Logout</button></a>
@@ -78,6 +78,7 @@ body {
   $name = $sqlName;
    print $name; 
 ?>
+
 <?Php 
 	//this are query to get the student name
 	$sqlStudent = "SELECT StudentFname, StudentLname, StudentID, Attendence FROM Student";
