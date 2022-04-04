@@ -23,6 +23,6 @@
         
         <p> Quiz is currently unavailable.</p>
 
-        <a href='QuizSelection.html' class = "block">Go Back</button></a>
+        <a href='StudentModel.php' class = "block">Go Back</button></a>
 </body>
 </html> 
