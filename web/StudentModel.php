@@ -56,7 +56,7 @@ body {
 </head>
 <body>
 <div class="sidenav">
-  <a href="DisplayQuiz.php">Quiz</a>
+  <a href="QuizSelection.php">Quiz</a>
   <a href="#Notes">Notes</a>
   <a href="#Grades">Grades</a>  
   <a href='Back/StudentLogout.php' class = "block">Logout</button></a>
