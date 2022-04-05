@@ -82,9 +82,9 @@ Foreign Key(StudentID) references Student(StudentID),
 Foreign Key(ShortQuestionID) references ShortQuiz(ShortQuestionID)
 );
 ----------------------
-INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence) VALUES ('1234','Tony','Lieu','0');
- INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence) VALUES ('2345','cass','somthing','0');
-INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence) VALUES ('3456','carly','somthing','0');
- INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence) VALUES ('4567','Jordan','somthing','0');
-INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence) VALUES ('5678','Joseph','somthing','0');
+INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('1234','Tony','Lieu','0','1');
+ INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('2345','cass','somthing','0','2');
+INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('3456','carly','somthing','0','3');
+ INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('4567','Jordan','somthing','0','4');
+INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('5678','Joseph','somthing','0','5');
  INSERT INTO Professor(ProfessorID, ProfessorNameF, ProfessorNameL, password) VALUES ('12345','Tony','Lieu','password');
