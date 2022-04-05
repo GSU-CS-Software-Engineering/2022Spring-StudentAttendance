@@ -36,10 +36,22 @@ body {
 }
 
 h2 {
-  margin-left: 160px; 
-  font-size: 28px; 
+  margin-left: 160px;
+  margin-top: 20px
   padding: 0px 10px;
+  position: relative;
 }
+
+.qrcode{
+  position: absolute;
+  z-index: 7;
+}
+
+.qrcode2{
+  position: absolute;
+  z-index: 9;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -59,7 +71,7 @@ h2 {
 <!--this slidebar can upload Notes and delete notes-->
   <a href="#Notes">Notes</a>
 <!--this is for view grades of all student-->
-  <a href="#Grades">Grades</a>
+  <a href="grades.php">Grades</a>
 <!-- this is a button that create  a qr code-->
     <a href="QR.php">QR code</a>
   <a href="#create">CreatePS</a>
@@ -70,19 +82,34 @@ h2 {
 </div>
 
   <h2>
+ 
   <title>QR Code</title>
-    <button type="button">Start</button>
-    <div id="qrcode"></div>
+  <div class="qrcode" id="qrcode"></div>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
+    function qrcode(){
+
     new QRCode(document.getElementById("qrcode"), "https://saq-trailrun.herokuapp.com/studentLogin.php");
-    </script>
+
+    }
+    setTimeout(qrcode, 0000);
+  </script>
+  </div>
+
+  <div class="qrcode2" id="qrcode2"></div>
+  <script type="text/javascript">
+    function qrcode2(){
+
+    new QRCode(document.getElementById("qrcode2"), "https://saq-trailrun.herokuapp.com/QRfail.php");
+    }
+
+    setTimeout(qrcode2, 30000);
+  </script>
+  </div>
+
     <style>
     body {background-color: powderblue;}
     </style>
-
-  </div>
-  </div>
 
 </h2>
 </div>
