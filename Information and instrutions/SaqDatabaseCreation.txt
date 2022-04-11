@@ -45,7 +45,8 @@ QuizID int,
 ShortQuestionID int unique,
 ShortQuestion varchar(300),
 ShortAnswers varchar(300),
-points int
+points int,
+QuestionNumber int
 );
 ------------------------
 create table QuizMultiple(
@@ -57,7 +58,8 @@ B varchar(1),
 C varchar(1),
 D varchar(1),
 MultipleAnswers varchar(1),
-points int
+points int,
+QuestionNumber int
 );
 ------------------------
 create table Quiz(
