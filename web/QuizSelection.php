@@ -107,7 +107,7 @@
   <div class="sidenav">
     <a href="QuizSelection.php">Quiz</a>
     <a href="#Notes">Notes</a>
-    <a href="#Grades">Grades</a>  
+    <a href="studentGrades.php">Grades</a>  
     <a href='Back/StudentLogout.php' class = "block">Logout</button></a>
     <p> &nbsp;&nbsp;&nbsp;</p>
     <img src="GSUsymbol.jpg" width="100" height="100">

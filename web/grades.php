@@ -69,18 +69,27 @@ h2 {
 </div>
 
   <h2>
+
+  <style type="text/css">
+  table {border:ridge 5px black;}
+  table td {border: inset 1px #000;}
+  table tr#ROW1 {background-color:gray; color:white;}
+  table tr#ROW2 {background-color:white;} 
+  table tr#ROW3 {background-color:gray; color:white;}
+  </style>
+
   <table>
-  <tr>
+  <tr id="ROW1">
     <th>   Student   </th>
     <th>   Quiz 1   </th>
     <th>   Quiz 2   </th>
   </tr>
-  <tr>
+  <tr id="ROW2">
     <td> </td>
     <td> </td>
     <td> </td>
   </tr>
-  <tr>
+  <tr id="ROW3">
     <td> </td>
     <td> </td>
     <td> </td>

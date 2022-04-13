@@ -62,7 +62,7 @@ body {
 <!--this slidebar can upload Notes and delete notes-->
   <a href="#Notes">Notes</a>
 <!--this is for view grades of all student-->
-  <a href="#Grades">Grades</a>
+  <a href="grades.php">Grades</a>
 <!-- this is a button that create  a qr code-->
     <a href="QR.php">QR code</a>
   <a href="#create">CreatePS</a>

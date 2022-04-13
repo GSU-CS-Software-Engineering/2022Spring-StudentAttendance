@@ -1,16 +1,17 @@
-<!DOCTYPE html> 
+<?php session_start(); ?> 
+ <?php
+ include 'Back/DatabaseAccess.php';
+ include 'Back/Attendance.php';
+?> 
 <html>
-  <head>
-
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <style>
-
-  body {
+<style>
+body {
   font-family: "Lato", sans-serif;
 }
 
@@ -50,31 +51,40 @@
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}   
-
-p {
-  margin-left: 160px; 
-  font-size: 28px; 
-  padding: 0px 10px;
 }
-        
-        </style> 
-        </head>  
-        <body> 
+</style>
+</head>
+<body>
+<div class="sidenav">
+  <a href="QuizSelection.php">Quiz</a>
+  <a href="#Notes">Notes</a>
+  <a href=studentGrades.php>Grades</a>  
+  <a href='Back/StudentLogout.php' class = "block">Logout</button></a>
+  <p> &nbsp;&nbsp;&nbsp;</p>
+  <img src="GSUsymbol.jpg" width="100" height="100">
+</div>
 
-          <div class="sidenav">
-            <a href="QuizSelection.php">Quiz</a>
-            <a href="#Notes">Notes</a>
-            <a href="studentGrades.php">Grades</a>  
-            <a href='Back/StudentLogout.php' class = "block">Logout</button></a>
-            <p> &nbsp;&nbsp;&nbsp;</p>
-            <img src="GSUsymbol.jpg" width="100" height="100">
-          </div>
+<div class="main">
 
-        <p> Quiz is currently unavailable.
+<style type="text/css">
+  table {border:ridge 5px black;}
+  table td {border: inset 1px #000;}
+  table tr#ROW1 {background-color:gray; color:white;}
+  table tr#ROW2 {background-color:white;} 
+</style>
 
-        <a href='QuizSelection.php' class = "block">Go Back</button></a>
+<table>
+  <tr id="ROW1">
+    <th>   Quiz 1   </th>
+    <td>      </td>
+  </tr>
+  <tr id="ROW2">
+    <th>   Quiz 2   </th>
+    <td>      </td>
+  </tr>
+</table>
 
-        </p>
+
+</div>  
 </body>
 </html> 
