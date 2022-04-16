@@ -87,35 +87,35 @@ h2 {
   </tr>
   <tr id="ROW2">
     <td> <?php print $StudentFirstName[0] ." ".$StudentLastName[0]; ?></td>
-    <td> </td>
-    <td> </td>
+    <td contenteditable='true'> </td>
+    <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW1">
     <td> <?php print $StudentFirstName[1] ." ".$StudentLastName[1]; ?></td>
-    <td> </td>
-    <td> </td>
+    <td contenteditable='true'> </td>
+    <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW2">
     <td> <?php print $StudentFirstName[2] ." ".$StudentLastName[2]; ?></td>
-    <td> </td>
-    <td> </td>
+    <td contenteditable='true'> </td>
+    <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW1">
     <td> <?php print $StudentFirstName[3] ." ".$StudentLastName[3]; ?></td>
-    <td> </td>
-    <td> </td>
+    <td contenteditable='true'> </td>
+    <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW2">
     <td> <?php print $StudentFirstName[4] ." ".$StudentLastName[4]; ?></td>
-    <td> </td>
-    <td> </td>
+    <td contenteditable='true'> </td>
+    <td contenteditable='true'> </td>
   </tr>
 
 </table>
 
   </div>
   </div>
-  <a href='editGrades.php' class = "block">Edit</button></a>
+  <a href='grades.php' class = "block">Save</button></a>
 </h2>
 </div>
 </body>
