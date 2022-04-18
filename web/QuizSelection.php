@@ -26,7 +26,7 @@
         .button1 {
           background-color: white; 
           color: black; 
-          border: 2px solid #4CAF50;
+          border: 2px solid black;
         }
 
         
@@ -46,6 +46,30 @@
             align-items: center;
             
 
+        }
+
+        h2{
+            width:100%;
+            height:200px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h3{
+            width:100%;
+            height:200px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h4{
+            width:100%;
+            height:200px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
         }
 
         p{
@@ -115,10 +139,15 @@
 
 <h1> Quizzes </h1>
 <p> Please Select your quiz! </p>
+<h2>
 <a href='testQuiz.php' class = "button button1">Quiz One</button></a>
+</h2>
+<h3>
 <a href='DisplayQuiz.php' class = "button button1">Quiz Two</button></a>
+</h3>
+<h4>
 <a href='DisplayQuiz.php' class = "button button1">Quiz Three</button></a>
-
+</h4>
 <a href='StudentModel.php' class = "block">Go Back</button></a>
 
     </body>
