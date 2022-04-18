@@ -115,7 +115,7 @@
 
 <h1> Quizzes </h1>
 <p> Please Select your quiz! </p>
-<a href='DisplayQuiz.php' class = "button button1">Quiz One</button></a>
+<a href='testQuiz.php' class = "button button1">Quiz One</button></a>
 <a href='DisplayQuiz.php' class = "button button1">Quiz Two</button></a>
 <a href='DisplayQuiz.php' class = "button button1">Quiz Three</button></a>
 
