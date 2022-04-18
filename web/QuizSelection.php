@@ -29,7 +29,9 @@
           border: 2px solid black;
         }
 
-        
+        .marginLeft {
+          margin-left: 20%;
+        }
         
         .block:hover {
           background-color: #ddd;
@@ -139,15 +141,15 @@
 
 <h1> Quizzes </h1>
 <p> Please Select your quiz! </p>
-<h2>
+<div class="marginLeft">
 <a href='testQuiz.php' class = "button button1">Quiz One</button></a>
-</h2>
-<h3>
+</div>
+<div class="marginLeft">
 <a href='DisplayQuiz.php' class = "button button1">Quiz Two</button></a>
-</h3>
-<h4>
+</div>
+<div class="marginLeft">
 <a href='DisplayQuiz.php' class = "button button1">Quiz Three</button></a>
-</h4>
+</div>>
 <a href='StudentModel.php' class = "block">Go Back</button></a>
 
     </body>
