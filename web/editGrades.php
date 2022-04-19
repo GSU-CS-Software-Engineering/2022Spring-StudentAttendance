@@ -86,27 +86,27 @@ h2 {
     <th>   Quiz 2   </th>
   </tr>
   <tr id="ROW2">
-    <td> <?php print $StudentFirstName[0] ." ".$StudentLastName[0]; ?></td>
+    <td> <?php print $StudentFirstName[$0] ." ".$StudentLastName[$0]; ?></td>
     <td contenteditable='true'> </td>
     <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW1">
-    <td> <?php print $StudentFirstName[1] ." ".$StudentLastName[1]; ?></td>
+    <td> <?php print $StudentFirstName[$1] ." ".$StudentLastName[$1]; ?></td>
     <td contenteditable='true'> </td>
     <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW2">
-    <td> <?php print $StudentFirstName[2] ." ".$StudentLastName[2]; ?></td>
+    <td> <?php print $StudentFirstName[$2] ." ".$StudentLastName[$2]; ?></td>
     <td contenteditable='true'> </td>
     <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW1">
-    <td> <?php print $StudentFirstName[3] ." ".$StudentLastName[3]; ?></td>
+    <td> <?php print $StudentFirstName[$3] ." ".$StudentLastName[$3]; ?></td>
     <td contenteditable='true'> </td>
     <td contenteditable='true'> </td>
   </tr>
   <tr id="ROW2">
-    <td> <?php print $StudentFirstName[4] ." ".$StudentLastName[4]; ?></td>
+    <td> <?php print $StudentFirstName[$4] ." ".$StudentLastName[$4]; ?></td>
     <td contenteditable='true'> </td>
     <td contenteditable='true'> </td>
   </tr>
