@@ -53,20 +53,23 @@ h2 {
 <body>
 <?php include 'Back/DatabaseAccess.php';?>
 <div class="sidenav">
+  <a  id = "bu" href="ProfessorModel.php">Home Page</a>
 <!--this will be a slidebar and have create Quiz, Edit Quiz, push Quiz-->
-  <a href="quizzes.php">Quiz</a>
+  <a  id = "bu" href="quizzes.php">Quiz</a>
 <!--this slidebar can upload Notes and delete notes-->
-  <a href="#Notes">Notes</a>
+  <a  id = "bu" href="#Notes">Notes</a>
 <!--this is for view grades of all student-->
-  <a href="grades.php">Grades</a>
+  <a  id = "bu" href="grades.php">Grades</a>
 <!-- this is a button that create  a qr code-->
-    <a href="QR.php">QR code</a>
-  <a href="#create">CreatePS</a>
+  <a  id = "bu" href="QR.php">QR Code</a>
+  <a  id = "bu" href="manageProfessors.php">Create Professors</a>
+  <a  id = "bu" href="manageStudent.php">Create Student</a>
   <!-- change href to a php that cancels the session for php-->
   <a href='index.php' class = "block">Logout</button></a>
   <p> &nbsp;&nbsp;&nbsp;</p>
+  <div class="text-center">
   <img src="GSUsymbol.jpg" width="100" height="100">
-</div>
+  </div>
 
   <h2>
 
@@ -79,38 +82,38 @@ h2 {
   </style>
   
   <table>
- 
   <tr id="ROW1">
     <th>   Student   </th>
     <th>   Quiz 1   </th>
     <th>   Quiz 2   </th>
   </tr>
   <tr id="ROW2">
-    <td> <?php print $StudentFirstName[$0] ." ".$StudentLastName[$0]; ?></td>
-    <td> </td>
-    <td> </td>
-  </tr>
-  <tr id="ROW1">
-    <td> <?php print $StudentFirstName[$1] ." ".$StudentLastName[$1]; ?></td>
-    <td> </td>
-    <td> </td>
-  </tr>
-  <tr id="ROW2">
-    <td> <?php print $StudentFirstName[$2] ." ".$StudentLastName[$2]; ?></td>
-    <td> </td>
-    <td> </td>
-  </tr>
-  <tr id="ROW1">
-    <td> <?php print $StudentFirstName[$3] ." ".$StudentLastName[$3]; ?></td>
-    <td> </td>
-    <td> </td>
-  </tr>
-  <tr id="ROW2">
-    <td> <?php print $StudentFirstName[$4] ." ".$StudentLastName[$4]; ?></td>
-    <td> </td>
-    <td> </td>
-  </tr>
+    <td> 
+  <?php
+  if ($rowCount > 0) {
+	   for($i = 1; $i <= $rowCount; $i++){ 
+		
+			$sqlStudentFirstName = "SELECT StudentFname FROM Student Where StudentNumber =".$i;
+			$sqlStudentLastName = "SELECT StudentLname FROM Student Where StudentNumber =".$i;
+			
+			$StudentFirstName = $pdo->prepare($sqlStudentFirstName);
+			$StudentLastName = $pdo->prepare($sqlStudentLastName);
+			
+			$StudentFirstName->execute();
+			$StudentLastName->execute();
 
+			$StudentFirstName = $StudentFirstName->fetchColumn();
+			$StudentLastName = $StudentLastName->fetchColumn();
+
+      print $StudentFirstName ." ".$StudentLastName; 
+
+  }
+}
+?>
+  </td>
+    <td> </td>
+    <td> </td>
+  </tr>
 </table>
 
   </div>
