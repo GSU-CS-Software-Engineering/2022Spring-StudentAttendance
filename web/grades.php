@@ -90,13 +90,36 @@ body {
   </style>
   
   <table>
-  <tr id="ROW1">
-    <th>   Student   </th>
-    <th>   Quiz 1   </th>
-    <th>   Quiz 2   </th>
-  </tr>
-  
   <?php
+  echo '<tr id="ROW1">';
+    echo '<th>   Student   </th>';
+
+    $sqlQuizzes = "SELECT COUNT(quizid) FROM quiz";
+
+    $Quizzes = $pdo->prepare($sqlQuizzes);
+
+    $Quizzes->execute();
+
+    $rowCount = (int) $Quizzes->fetchColumn();
+    if ($rowCount > 0) {
+      for ($i = 0; $i <= $rowCount - 1; $i++) {
+
+        $sqlQuizData = "SELECT quizid FROM quiz ORDER BY quizid ASC LIMIT 1 OFFSET '$i'";
+
+        $quizData = $pdo->prepare($sqlQuizData);
+
+        $quizData->execute();
+
+        $quizID = (int) $quizData->fetchColumn();
+
+        echo '<th>';
+        print "Quiz ".$quizID;
+        echo '</th>';
+
+      }  
+    }
+    echo '</tr>';
+
   $sqlStudent = "SELECT * FROM Student";
 
 	$Student = $pdo->prepare($sqlStudent);
@@ -123,12 +146,15 @@ body {
       echo '  <td>';
       print $StudentFirstName." ".$StudentLastName;
       echo '  </td>';
-      echo '  <td>      </td>';
-      echo '  <td>      </td>';
-      echo '</tr>';
-      
+    
+        for ($x = 0; $x <= $quizID - 1; $x++){
+          echo '  <td>      </td>';
+        }  
+       
+
+      echo '</tr>';   
+    }
   }
-}
 ?>
 </table>
 <a href='editGrades.php' class = "block">Edit</button></a>
