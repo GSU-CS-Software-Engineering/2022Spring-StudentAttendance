@@ -35,7 +35,7 @@ body {
   background:  radial-gradient(circle at top left, blue 10px, white 11px);
 }
 
-h2 {
+.table {
   margin-left: 160px; 
   font-size: 28px; 
   padding: 0px 10px;
@@ -62,8 +62,8 @@ h2 {
   <a  id = "bu" href="grades.php">Grades</a>
 <!-- this is a button that create  a qr code-->
   <a  id = "bu" href="QR.php">QR Code</a>
-  <a  id = "bu" href="manageProfessors.php">Create Professors</a>
-  <a  id = "bu" href="manageStudent.php">Create Student</a>
+  <a  id = "bu" href="manageProfessors.php">Professors</a>
+  <a  id = "bu" href="manageStudent.php">Students</a>
   <!-- change href to a php that cancels the session for php-->
   <a href='index.php' class = "block">Logout</button></a>
   <p> &nbsp;&nbsp;&nbsp;</p>
@@ -71,9 +71,17 @@ h2 {
   <img src="GSUsymbol.jpg" width="100" height="100">
   </div>
 
-  <h2>
+  
 
-  <style type="text/css">
+  
+
+  </div>
+  </div>
+
+
+</div>
+<div class="table">
+<style type="text/css">
   table {border:ridge 5px black;}
   table td {border: inset 1px #000;}
   table tr#ROW1 {background-color:gray; color:white;}
@@ -87,9 +95,15 @@ h2 {
     <th>   Quiz 1   </th>
     <th>   Quiz 2   </th>
   </tr>
-  <tr id="ROW2">
-    <td> 
+  
   <?php
+  $sqlStudent = "SELECT * FROM Student";
+
+	$Student = $pdo->prepare($sqlStudent);
+
+	$Student->execute();
+
+	$rowCount = $Student->rowCount();
   if ($rowCount > 0) {
 	   for($i = 1; $i <= $rowCount; $i++){ 
 		
@@ -104,22 +118,20 @@ h2 {
 
 			$StudentFirstName = $StudentFirstName->fetchColumn();
 			$StudentLastName = $StudentLastName->fetchColumn();
-
-      print $StudentFirstName ." ".$StudentLastName; 
-
+      
+      echo '<tr id="ROW2">';
+      echo '  <td>';
+      print $StudentFirstName." ".$StudentLastName;
+      echo '  </td>';
+      echo '  <td>      </td>';
+      echo '  <td>      </td>';
+      echo '</tr>';
+      
   }
 }
 ?>
-  </td>
-    <td> </td>
-    <td> </td>
-  </tr>
 </table>
-
-  </div>
-  </div>
-  <a href='editGrades.php' class = "block">Edit</button></a>
-</h2>
+<a href='editGrades.php' class = "block">Edit</button></a>
 </div>
 </body>
 </html>
