@@ -1,3 +1,4 @@
+
  <?php session_start(); ?> 
 <html>
 <body>
@@ -62,7 +63,7 @@ body {background-image: url('GreenBackground.jpg');
  <input type="text" name="pass" placeholder="Password"><br>
 <input type="submit">
 </form>
-<a href='LoginPage.php' class = "block">Go Back</button></a>
+<a href='index.php' class = "block">Go Back</button></a>
 
 </body>
 </html>
