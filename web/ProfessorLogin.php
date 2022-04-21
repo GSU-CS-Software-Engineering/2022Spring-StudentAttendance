@@ -14,7 +14,7 @@ input[type=text], select {
 
 input[type=submit] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #021f3f;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -34,7 +34,7 @@ div {
 }
 </style>
 <style>
-body {background-color: powderblue;}
+body {background-color: #ac925f;}
 body {background-image: url('GreenBackground.jpg');
  background-repeat: no-repeat;
   background-attachment: fixed;
@@ -58,7 +58,7 @@ body {background-image: url('GreenBackground.jpg');
 
  </style>
 <form action="Back/ProfessorVerify.php" method="post">
-<input type="text" name="Pname" placeholder="ProfessorID"><br>
+<input type="text" name="Pname" placeholder="Professor ID"><br>
  <input type="text" name="pass" placeholder="Password"><br>
 <input type="submit">
 </form>
