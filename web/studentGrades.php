@@ -42,9 +42,9 @@ body {
   background:  radial-gradient(circle at top left, blue 10px, white 11px);
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+.table {
+  margin-left: 160px; 
+  font-size: 28px; 
   padding: 0px 10px;
 }
 
@@ -56,6 +56,7 @@ body {
 </head>
 <body>
 <div class="sidenav">
+  <a href="StudentModel.php">HomePage</a>
   <a href="QuizSelection.php">Quiz</a>
   <a href="#Notes">Notes</a>
   <a href=studentGrades.php>Grades</a>  
@@ -64,27 +65,51 @@ body {
   <img src="GSUsymbol.jpg" width="100" height="100">
 </div>
 
-<div class="main">
-
+<div class="table">
+<h1>Grades</h1>
 <style type="text/css">
   table {border:ridge 5px black;}
   table td {border: inset 1px #000;}
   table tr#ROW1 {background-color:gray; color:white;}
   table tr#ROW2 {background-color:white;} 
-</style>
 
-<table>
-  <tr id="ROW1">
-    <th>   Quiz 1   </th>
-    <td>      </td>
-  </tr>
-  <tr id="ROW2">
-    <th>   Quiz 2   </th>
-    <td>      </td>
-  </tr>
+  </style>
+  
+  <table>
+  <?php
+  echo '<tr id="ROW1">';
+    echo '<th>   Quiz   </th>';
+    echo '<th>   Grade   </th>';
+    echo '</tr>';
+
+    $sqlQuizzes = "SELECT COUNT(quizid) FROM quiz";
+
+    $Quizzes = $pdo->prepare($sqlQuizzes);
+
+    $Quizzes->execute();
+
+    $rowCount = (int) $Quizzes->fetchColumn();
+    if ($rowCount > 0) {
+      for ($i = 0; $i <= $rowCount - 1; $i++) {
+
+        $sqlQuizData = "SELECT quizid FROM quiz ORDER BY quizid ASC LIMIT 1 OFFSET '$i'";
+
+        $quizData = $pdo->prepare($sqlQuizData);
+
+        $quizData->execute();
+
+        $quizID = (int) $quizData->fetchColumn();
+      
+      echo '<tr id="ROW2">';
+      echo '  <td>';
+      print "Quiz ".$quizID;
+      echo '  </td>';
+      echo '  <td>      </td>';
+      echo '</tr>';   
+    }
+  }
+?>
 </table>
-
-
-</div>  
+</div>
 </body>
-</html> 
+</html>
