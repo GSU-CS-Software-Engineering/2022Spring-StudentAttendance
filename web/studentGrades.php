@@ -111,5 +111,8 @@ body {
 ?>
 </table>
 </div>
+    <style>
+    body {background-color: powderblue;}
+    </style>
 </body>
 </html>

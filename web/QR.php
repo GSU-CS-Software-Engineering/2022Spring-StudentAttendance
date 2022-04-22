@@ -35,6 +35,13 @@ body {
   background:  radial-gradient(circle at top left, blue 10px, white 11px);
 }
 
+h1 {
+  margin-left: 160px;
+  margin-top: 20px
+  padding: 0px 10px;
+  position: relative;
+}
+
 h2 {
   margin-left: 160px;
   margin-top: 20px
@@ -66,6 +73,7 @@ h2 {
 <body>
 <?php include 'Back/DatabaseAccess.php';?>
 <div class="sidenav">
+  <a  href="ProfessorModel.php">Home Page</a>
 <!--this will be a slidebar and have create Quiz, Edit Quiz, push Quiz-->
   <a href="quizzes.php">Quiz</a>
 <!--this slidebar can upload Notes and delete notes-->
@@ -73,17 +81,16 @@ h2 {
 <!--this is for view grades of all student-->
   <a href="grades.php">Grades</a>
 <!-- this is a button that create  a qr code-->
-    <a href="QR.php">QR code</a>
-  <a href="#create">CreatePS</a>
+  <a href="QR.php">QR code</a>
+  <a href="manageProfessors.php">Professors</a>
+  <a href="manageStudent.php">Students</a>
   <!-- change href to a php that cancels the session for php-->
   <a href='index.php' class = "block">Logout</button></a>
   <p> &nbsp;&nbsp;&nbsp;</p>
   <img src="GSUsymbol.jpg" width="100" height="100">
 </div>
-
+  <h1>Scan for Attendance!</h1>
   <h2>
- 
-  <title>QR Code</title>
   <div class="qrcode" id="qrcode"></div>
 
   <script type="text/javascript">

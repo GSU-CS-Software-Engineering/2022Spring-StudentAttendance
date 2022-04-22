@@ -4,6 +4,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+#bu{
+		text-decoration: none;
+	}
+  
 body {
   font-family: "Lato", sans-serif;
 }
@@ -71,13 +75,8 @@ body {
   <img src="GSUsymbol.jpg" width="100" height="100">
   </div>
 
-  
-
-  
-
   </div>
   </div>
-
 
 </div>
 <div class="table">
@@ -159,5 +158,8 @@ body {
 </table>
 <a href='editGrades.php' class = "block">Edit</button></a>
 </div>
+    <style>
+    body {background-color: powderblue;}
+    </style>
 </body>
 </html>
