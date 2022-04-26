@@ -101,7 +101,7 @@ body {
 
     $rowCount = (int) $Quizzes->fetchColumn();
     if ($rowCount > 0) {
-      for ($i = 0; $i <= $rowCount - 1; $i++) {
+      for ($i = 0; $i <= $rowCount -1; $i++) {
 
         $sqlQuizData = "SELECT quizid FROM quiz ORDER BY quizid ASC LIMIT 1 OFFSET '$i'";
 
@@ -163,3 +163,7 @@ body {
     </style>
 </body>
 </html>
+
+
+
+
