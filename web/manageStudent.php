@@ -1,7 +1,10 @@
 <!DOCTYPE html>
- <?php session_start(); 
- ?> 
- <?php include 'Back/DatabaseAccess.php';?>
+<?php session_start();
+  if (!(isset($_SESSION["ProfessorID"]))) {
+    header('location: ProfessorLogin.php');
+  }
+?> 
+<?php include 'Back/DatabaseAccess.php';?>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -82,83 +85,69 @@
 			</div>
 		</div>
 </header>
-
-<style>
-body {background-color: #ac925f;}
-	.card {
-		border: 5px solid black;
-	}
-</style>
 <section>
 <div class="main">
-  <h2>Welcome, Professor <?Php
-  $sqlName = $_SESSION["PLastName"]." ";
-  $name = $sqlName;
-   print $name; 
-?>
+  <h2>
+    <style>
+    body {background-color: 021f3f;}
+		.card {
+		border: 5px solid black;
+	}
+    </style>
+  <?Php
 
-<?Php 
-	//this are query to get the student name
-	$sqlStudent = "SELECT * FROM Student";
+	//this is a query to get the count of current professors in the database
 
-	//prepare sql statment
-	$Student = $pdo->prepare($sqlStudent);
-//	$Attendence = $pdo->prepare($sqlAttendence);
-	//$StudentFirstName = $pdo->prepare($sqlStudentFirstName);
-	//$StudentLastName = $pdo->prepare($sqlStudentLastName);
-	//$StudentID = $pdo->prepare($sqlStudentID);
-	// excurte statments
-	$Student->execute();
+  $sqlStudent = "SELECT COUNT(Studentid) FROM Student";
+  $Student = $pdo->prepare($sqlStudent);
+  $Student->execute();
+  $rowCount = (int) $Student->fetchColumn();
 
-	$rowCount = $Student->rowCount();
-	//this is to create card exmamples
-		//$Student =$Student->fetchColumn(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT);
+	//this is to create cards for each professor
 
 	if ($rowCount > 0) {
-       //thsi will create a card for every row in the database	
-	   for($i = 0; $i <= $rowCount - 1; $i++){ 
-			$sqlAttendence = "SELECT Attendence FROM Student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			$sqlStudentFirstName = "SELECT studentfname FROM student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			$sqlStudentLastName = "SELECT studentlname FROM student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			$sqlStudentID = "SELECT StudentID FROM student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			//pdo-prepare
-			$Attendence = $pdo->prepare($sqlAttendence);
-			$StudentFirstName = $pdo->prepare($sqlStudentFirstName);
-			$StudentLastName = $pdo->prepare($sqlStudentLastName);
-			$StudentID = $pdo->prepare($sqlStudentID);
-			//executes
-			$Attendence->execute();
-			$StudentFirstName->execute();
-			$StudentLastName->execute();
-			$StudentID->execute();
-			//fetch
-			$StudentAttendence = $Attendence->fetchColumn();
-			$StudentFirstName = $StudentFirstName->fetchColumn();
-			$StudentLastName = $StudentLastName->fetchColumn();
-			$StudentID = $StudentID->fetchColumn();
-	   if($StudentAttendence == 1){
-	echo '<div class="card bg-success text-white" style="width: 25rem; id = "'.$StudentID.'">';
-	echo '<div class= "card-body">';
-	print $StudentFirstName ." ".$StudentLastName." ".$StudentID;
-	echo '</div>';
-	echo '</div>';
-	echo '<p> &nbsp;&nbsp;&nbsp;</p>';
-	   }
-	   else{
-	echo '<div class="card bg-danger text-white" style="width: 25rem; id = "'.$StudentID.'">';
-	echo '<div class= "card-body">';
-	print $StudentFirstName ." ".$StudentLastName." ".$StudentID;
-	echo '</div>';
-	echo '</div>';
-	echo '<p> &nbsp;&nbsp;&nbsp;</p>';  
-	   }
-	   }
-} else {
-    echo "0 results";
-}
-?>
+    // output data of each row
+    for ($i = 0; $i <= $rowCount - 1; $i++) {
+       //this will create a card for every row in the database
+      $sqlStudentID = "SELECT studentid FROM student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
+      $StudentData = $pdo->prepare($sqlStudentID);
+      $StudentData->execute();
+      $StudentID = (int) $StudentData->fetchColumn();
+      $sqlStudentFName = "SELECT StudentFname FROM Student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
+      $StudentFNameData = $pdo->prepare($sqlStudentFName);
+      $StudentFNameData->execute();
+      $StudentFName = $StudentFNameData->fetchColumn();
+      $sqlStudentLName = "SELECT StudentLname FROM Student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
+      $StudentLNameData = $pdo->prepare($sqlStudentLName);
+      $StudentLNameData->execute();
+      $StudentLName = $StudentLNameData->fetchColumn();
+
+      echo '<div class="card" style="width: 18rem; id = "'.$StudentID.'">';
+      echo '<div class= "card-body">';
+      echo '<div class="text-center">';
+      echo '<h5 class="card-title">';
+      print $StudentFName ." ". $StudentLName;
+      echo '</h5>';
+      print $StudentID;
+      echo '<form action="deleteStudent.php" method="post">';
+      echo '<button class="btn btn-primary" type="submit" name="Studentid" value="'.$StudentID.'">Delete Student</a>';
+      echo '</form>';
+      echo '</div>';
+      echo '</div>';
+      echo '</div>';
+      echo '<p> &nbsp;&nbsp;&nbsp;</p>';
+	  }
+  }
+  ?>
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+  <div class="text-center">
+  <a href="addStudent.php" class="btn btn-primary">Add Student</a>
+  </div>
+  </div>
+  </div>
 </h2>
 </div>
 </section>
 </body>
-</html> 
+</html>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
- <?php session_start(); 
- ?> 
+<?php session_start();
+  if (!(isset($_SESSION["ProfessorID"]))) {
+    header('location: ProfessorLogin.php');
+  }
+?>
  <?php include 'Back/DatabaseAccess.php';?>
 <html lang="en">
 <head>
@@ -82,83 +85,31 @@
 			</div>
 		</div>
 </header>
-
-<style>
-body {background-color: #ac925f;}
-	.card {
-		border: 5px solid black;
-	}
-</style>
 <section>
 <div class="main">
-  <h2>Welcome, Professor <?Php
-  $sqlName = $_SESSION["PLastName"]." ";
-  $name = $sqlName;
-   print $name; 
-?>
-
-<?Php 
-	//this are query to get the student name
-	$sqlStudent = "SELECT * FROM Student";
-
-	//prepare sql statment
-	$Student = $pdo->prepare($sqlStudent);
-//	$Attendence = $pdo->prepare($sqlAttendence);
-	//$StudentFirstName = $pdo->prepare($sqlStudentFirstName);
-	//$StudentLastName = $pdo->prepare($sqlStudentLastName);
-	//$StudentID = $pdo->prepare($sqlStudentID);
-	// excurte statments
-	$Student->execute();
-
-	$rowCount = $Student->rowCount();
-	//this is to create card exmamples
-		//$Student =$Student->fetchColumn(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT);
-
-	if ($rowCount > 0) {
-       //thsi will create a card for every row in the database	
-	   for($i = 0; $i <= $rowCount - 1; $i++){ 
-			$sqlAttendence = "SELECT Attendence FROM Student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			$sqlStudentFirstName = "SELECT studentfname FROM student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			$sqlStudentLastName = "SELECT studentlname FROM student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			$sqlStudentID = "SELECT StudentID FROM student ORDER BY studentlname ASC LIMIT 1 OFFSET '$i'";
-			//pdo-prepare
-			$Attendence = $pdo->prepare($sqlAttendence);
-			$StudentFirstName = $pdo->prepare($sqlStudentFirstName);
-			$StudentLastName = $pdo->prepare($sqlStudentLastName);
-			$StudentID = $pdo->prepare($sqlStudentID);
-			//executes
-			$Attendence->execute();
-			$StudentFirstName->execute();
-			$StudentLastName->execute();
-			$StudentID->execute();
-			//fetch
-			$StudentAttendence = $Attendence->fetchColumn();
-			$StudentFirstName = $StudentFirstName->fetchColumn();
-			$StudentLastName = $StudentLastName->fetchColumn();
-			$StudentID = $StudentID->fetchColumn();
-	   if($StudentAttendence == 1){
-	echo '<div class="card bg-success text-white" style="width: 25rem; id = "'.$StudentID.'">';
-	echo '<div class= "card-body">';
-	print $StudentFirstName ." ".$StudentLastName." ".$StudentID;
-	echo '</div>';
-	echo '</div>';
-	echo '<p> &nbsp;&nbsp;&nbsp;</p>';
-	   }
-	   else{
-	echo '<div class="card bg-danger text-white" style="width: 25rem; id = "'.$StudentID.'">';
-	echo '<div class= "card-body">';
-	print $StudentFirstName ." ".$StudentLastName." ".$StudentID;
-	echo '</div>';
-	echo '</div>';
-	echo '<p> &nbsp;&nbsp;&nbsp;</p>';  
-	   }
-	   }
-} else {
-    echo "0 results";
-}
-?>
+  <h2>
+    <style>
+    body {background-color: 021f3f;}
+	
+    </style>
+    <form action="createStudent.php" method="post">
+        <div class="form-group">
+            <label for="StudentFNameEntry">First Name</label>
+            <input type="text" class="form-control" name="StudentFName" placeholder="Enter First Name">
+        </div>
+        <div class="form-group">
+            <label for="StudentLNameEntry">Last Name</label>
+            <input type="text" class="form-control" name="StudentLName" placeholder="Enter Last Name">
+        </div>
+        <div class="form-group">
+            <label for="StudentIDEntry">Student ID</label>
+            <input type="text" class="form-control" name="Studentid" placeholder="Enter Student ID">
+        </div>
+        <input class="btn btn-secondary" type="button" value="Cancel" onClick="window.location='https://saq-trailrun.herokuapp.com/manageStudent.php'">
+    <input class="btn btn-primary" type="submit"> 
+    </form>
 </h2>
 </div>
-</section>
+</section
 </body>
-</html> 
+</html>

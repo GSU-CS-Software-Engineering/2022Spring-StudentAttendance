@@ -1,6 +1,8 @@
- <?php session_start(); ?> 
- <?php $name = $_POST["Sname"]; ?>
- <?php
+ <?php session_start();
+ $name = $_POST["Sname"];
+ if(empty($name)||ctype_space($name)){
+	 header("location: ../studentLogin.php");
+ }
  include 'DatabaseAccess.php';
 //this will be replace with an input statment
 $studentNum = $name;
@@ -20,10 +22,11 @@ if($rowCount > 0){
 		$_SESSION["StudentID"] = $name;
 		$StudentF = $SFName;
 		$_SESSION["SFirstName"] = $StudentF;
+		$_SESSION['last_login_timestamp'] = time();
 		header("location: ../StudentModel.php");
 }
 else{
-		echo " wrong ID";
+		
 		header("location: ../studentLogin.php");
 }
 ?>
