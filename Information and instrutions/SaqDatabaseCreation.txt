@@ -32,9 +32,9 @@ Foreign Key(StudentID) references Student(StudentID)
 );
 ------------------------
 create table QuizGrades(
-Quiz int unique,
+Quiz int,
 StudentID int,
-Grades int,
+Grades int, 
 CorrectPoints int,
 totalPoint int,
 Foreign Key(StudentID) references Student(StudentID)
