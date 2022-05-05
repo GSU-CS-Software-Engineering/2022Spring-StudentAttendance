@@ -1,0 +1,92 @@
+//this will create a database
+CREATE DATABASE saq;
+use saq;
+------------------------
+create table Student(
+StudentID int unique,
+StudentFName varchar(100),
+StudentLName varchar(100),
+Avg int,
+Attendence int,
+StudentNumber int unique,
+Primary Key(StudentID));
+------------------------
+create table Professor(
+ProfessorID int unique,
+password varchar(20),
+ProfessorNameF varchar(100),
+ProfessorNameL varchar(100)
+);
+------------------------
+create table Notes(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+filename VARCHAR(128) NOT NULL,
+mimetype VARCHAR(64) NOT NULL,
+data MEDIUMBLOB NOT NULL
+);
+------------------------
+create table AttendenceHistory(
+Date DATE,
+StudentID int ,
+Foreign Key(StudentID) references Student(StudentID)
+);
+------------------------
+create table QuizGrades(
+Quiz int,
+StudentID int,
+Grades int, 
+CorrectPoints int,
+totalPoint int,
+Foreign Key(StudentID) references Student(StudentID)
+);
+------------------------
+create table ShortQuiz(
+QuizID int,
+ShortQuestionID int unique,
+ShortQuestion varchar(300),
+ShortAnswers varchar(300),
+points int,
+QuestionNumber int
+);
+------------------------
+create table QuizMultiple(
+QuizID int,
+QuestionMultipleID int unique,
+QuestionMultiple varchar(300),
+A varchar(1),
+B varchar(1),
+C varchar(1),
+D varchar(1),
+MultipleAnswers varchar(1),
+points int,
+QuestionNumber int
+);
+------------------------
+create table Quiz(
+QuizID int,
+QuestionID int,
+QuestionNumber int
+);
+------------------------
+create table MultipleStudentAnswer(
+StudentID int,
+MultipleAnswers varchar(1),
+QuestionMultipleID int,
+Foreign Key(StudentID) references Student(StudentID),
+Foreign Key(QuestionMultipleID) references QuizMultiple(QuestionMultipleID)
+);
+-----------------------
+create table ShortStudentAnswer(
+StudentID int,
+ShortAnswers varchar(300),
+ShortQuestionID int,
+Foreign Key(StudentID) references Student(StudentID),
+Foreign Key(ShortQuestionID) references ShortQuiz(ShortQuestionID)
+);
+----------------------
+INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('1234','Tony','Lieu','0','1');
+ INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('2345','cass','somthing','0','2');
+INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('3456','carly','somthing','0','3');
+ INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('4567','Jordan','somthing','0','4');
+INSERT INTO Student(StudentID, StudentFName, StudentLName, Attendence,StudentNumber) VALUES ('5678','Joseph','somthing','0','5');
+ INSERT INTO Professor(ProfessorID, ProfessorNameF, ProfessorNameL, password) VALUES ('12345','Tony','Lieu','password');
