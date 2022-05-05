@@ -2,51 +2,70 @@
 <html>
 <body>
 <style>
-.block {
-  display: block;
-  width: 100%;
-  border: none;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
+	#bu{
+		text-decoration: none;
+	}
+
+.center {
+  padding: 70px 0;
   text-align: center;
 }
-.block:hover {
-  background-color: #ddd;
-  color: black;
+
+.content {
+  max-width: 500px;
+  margin: auto; 
+ 
 }
+
 .button {
-  border: none;
-  color: white;
-  padding: 16px 500px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  color: #021f3f;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 3em;
+  width: 8em;
+  font-size: large;
+  font-weight: 600;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #4CAF50;
-}
 
 .button1:hover {
-  background-color: #4CAF50;
+  background-color: #021f3f;
   color: white;
 }
 
+body {
+  background-color: #021f3f;
+}
+
+h1 {
+  background-color:white;
+  text-align: center;
+}
+
+
+
 </style>
-<h1 style="background-color:powderblue;">Login</h1>
-<a href='studentLogin.php' class = "button button1">Student</button></a>
-<a href='ProfessorLogin.php'class = "button button1">Professor</button></a>
-<style>
-body {background-color: powderblue;}
-</style>
+
+
+<div class="content center">
+	<h1>Login</h1>
+
+  <h2>
+    
+  <a  id = "bu" href='studentLogin.php' class = "button content">Student Portal</button></a>
+	<a  id = "bu" href='ProfessorLogin.php'class = "button content">Professor Portal</button></a>
+
+  <img src="PrettyPicture.jpg" width="2000" height="400" class = "content">
+  
+</h2>
+
+</div>
+
 </body>
 </html>

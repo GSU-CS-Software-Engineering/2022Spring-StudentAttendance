@@ -1,6 +1,14 @@
  <?php session_start(); ?> 
  <?php $name = $_POST["Pname"];
-$Pass = $_POST["pass"]; ?>
+  if(empty($name)||ctype_space($name)){
+	 header("location: ../ProfessorLogin.php");
+ }
+$Pass = $_POST["pass"]; 
+
+ if(empty($Pass)||ctype_space($Pass)){
+	 header("location: ../ProfessorLogin.php");
+ }?>
+
  <?php
  include 'DatabaseAccess.php';
 //this will be replace with an input statement

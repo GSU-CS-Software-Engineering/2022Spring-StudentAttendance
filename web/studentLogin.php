@@ -2,6 +2,34 @@
 <html>
 <body>
 <style>
+
+.center {
+  
+  text-align: center;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto; 
+ 
+}
+
+.button {
+  color: #021f3f;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 3em;
+  width: 8em;
+  font-size: large;
+  font-weight: 600;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -56,16 +84,25 @@ body {background-image: url('GreenBackground.jpg');
   background-color: #ddd;
   color: black;
 }
-body {background-image: url('CollegeBackground.jpg');
- background-repeat: no-repeat;
+body {
+  background-image: url('CollegeBackground.jpg');
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;}
  </style>
+
+
+<div class = "content center">
 <form action="Back/StudentVerify.php" method="post">
 <input type="text" name="Sname" placeholder="Student ID"><br>
-<input type="submit">
-</form>
-<a href='index.php' class = "block">Go Back</button></a>
+<input type="submit" class = "button content" >
 
+</form>
+
+
+<a href='index.php' class = "button content">Go Back</button></a>
+<img src="PP2.jpg" width="2000" height="400" class = "content">
+
+</div>
 </body>
 </html>

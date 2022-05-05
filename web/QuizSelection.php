@@ -1,156 +1,156 @@
 <!DOCTYPE html> 
-<html>
+<?php
+  session_start();
+  if (isset($_SESSION["StudentID"])) {
+    if ((time() - $_SESSION['last_login_timestamp']) > 3600) {
+      header('location: /Back/StudentLogout.php');
+    }
+  } else {
+    header('location: /Back/StudentLogout.php');
+  }
+  include 'Back/DatabaseAccess.php';
+?>
+<script>
+  setTimeout(function() {window.location.replace("https://saq-trailrun.herokuapp.com/Back/StudentLogout.php")}, 900000);
+</script>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <title>Student</title>  
+	<!-- Bootstrap CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+     <!-- CSS Custom -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <!-- favicon Icon -->
+    <!--<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">-->
+    <!-- CSS Plugins -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
-  <style>
-
-        .button {
-          border: none;
-          color: white;
-          padding: 16px 500px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          font-size: 16px;
-          margin: 4px 2px;
-          transition-duration: 0.4s;
-          cursor: pointer;
-        }
-
-        .button1 {
-          background-color: white; 
-          color: black; 
-          border: 2px solid black;
-        }
-
-        .marginLeft {
-          margin-left: 20%;
-        }
-        
-        .block:hover {
-          background-color: #ddd;
-          color: black;
-
-          text-align:center;
-        }
-
-        h1{
-            width:100%;
-            height:200px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            
-
-        }
-
-        h2{
-            width:100%;
-            height:200px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h3{
-            width:100%;
-            height:200px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h4{
-            width:100%;
-            height:200px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        p{
-            width: 100%;
-            height: -50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-}
-
-        body {
-            font-family: "Lato", sans-serif;
-          }
-
-        .sidenav {
-          height: 100%;
-          width: 160px;
-          position: fixed;
-          z-index: 1;
-          top: 0;
-          left: 0;
-          background-color: #1D40EF;
-          overflow-x: hidden;
-          padding-top: 20px;
-
-        }
-
-        .sidenav a {
-          padding: 6px 8px 6px 16px;
-          text-decoration: none;
-          font-size: 25px;
-          color: #f1f1f1;
-          display: block;
-          
-        }
-
-        .sidenav a:hover {
-          color: #FFD700;  
-          background:  radial-gradient(circle at top left, blue 10px, white 11px);
-        }
-
-        .main {
-          margin-left: 160px; /* Same as the width of the sidenav */
-          font-size: 28px; /* Increased text to enable scrolling */
-          padding: 0px 10px;
-        }
-
-        @media screen and (max-height: 450px) {
-          .sidenav {padding-top: 15px;}
-          .sidenav a {font-size: 18px;}
-        }   
-
-</style>
 </head>
+<body>
 
-<body> 
 
-  <div class="sidenav">
-    <a href="QuizSelection.php">Quiz</a>
-    <a href="#Notes">Notes</a>
-    <a href="studentGrades.php">Grades</a>  
-    <a href='Back/StudentLogout.php' class = "block">Logout</button></a>
-    <p> &nbsp;&nbsp;&nbsp;</p>
-    <img src="GSUsymbol.jpg" width="100" height="100">
-  </div>
+<header class="navbar-fixed-top">
+	<div class="container">
+    	<div class="row">
+        	<div class="header_top">
+        		<div class="col-md-2">
+            		<div class="logo_img">
+						Welcome
+  <?Php
+  $sqlfName = $_SESSION["SFirstName"];
+  $fname = $sqlfName;
+   print $fname; 
+?>
+					</div>
+				</div>
+					
+				<div class="col-md-10">
+					<div class="menu_bar">	
+						<nav role="navigation" class="navbar navbar-default">
+							<div class="navbar-header">
+                                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+                                  </button>
+							   </div>
+							   
+							  <div class="collapse navbar-collapse" id="navbar">
+                            
+									<ul class="nav navbar-nav">
+									  <li><a  href="StudentModel.php">Home Page</a></li>
+									  <li><a  href="QuizSelection.php">Quiz</a></li>
+									  <li><a href="notes.php">Notes</a></li>
+									   <li><a  href="studentGrades.php">Grades</a> 
+									  <li><a href='Back/StudentLogout.php' class = "block">Logout</a> </li>
+									  <img src="GSUsymbol.jpg" width="100" height="100">
+									</ul>      
+                          		</div>
+							  
+							 
+       			
+						</nav>
+					</div>
+    	        </div>
+			  
+			  </div>
+			</div>
+		</div>
+</header>
+<section>
+<div class="main">
+<h1>Select a quiz</h1>
+<h2>
+<?php
+  $sqlQuizzes = "SELECT COUNT(quizid) FROM quiz";
+  $Quizzes = $pdo->prepare($sqlQuizzes);
+  $Quizzes->execute();
+  $rowCount = (int) $Quizzes->fetchColumn();
+  $studentID = $_SESSION["StudentID"];
 
-<h1> Quizzes </h1>
-<p> Please Select your quiz! </p>
-<div class="marginLeft">
-<a href='testQuiz.php' class = "button button1">Quiz One</button></a>
+  if ($rowCount > 0) {
+    // output data of each row
+    for ($i = 0; $i <= $rowCount - 1; $i++) {
+       //this will create a card for every row in the database
+      $sqlQuizData = "SELECT quizid FROM quiz ORDER BY quizid ASC LIMIT 1 OFFSET '$i'";
+      $quizData = $pdo->prepare($sqlQuizData);
+      $quizData->execute();
+      $quizID = (int) $quizData->fetchColumn();
+      $sqlIsPushed = "SELECT pushable FROM quiz ORDER BY quizid ASC LIMIT 1 OFFSET '$i'";
+      $isPushed = $pdo->prepare($sqlIsPushed);
+      $isPushed->execute();
+      $pushed = $isPushed->fetchColumn();
+      $sqlTaken = "SELECT COALESCE((SELECT grades FROM quizgrades WHERE quiz = '$quizID' AND studentid = '$studentID'), -1)";
+      $taken = $pdo->prepare($sqlTaken);
+      $taken->execute();
+      $takenValue = $taken->fetchColumn();
+      if ($pushed == "true" and $takenValue == -1) {
+        echo '<div class="card" style="width: 18rem; id = "'.$quizID.'">';
+        echo '<div class= "card-body">';
+        echo '<div class="text-center">';
+        echo '<h5 class="card-title">';
+        print "Quiz ".$quizID;
+        echo '</h5>';
+        echo '<form action="DisplayQuiz.php" method="post">';
+        echo '<button class="btn btn-primary" type="submit" name="quizid" value="'.$quizID.'">Take Quiz</a>';
+        echo '</form>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<p> &nbsp;&nbsp;&nbsp;</p>';
+      }
+	  }
+  }
+?>
+</h2>
 </div>
-<div class="marginLeft">
-<a href='DisplayQuiz.php' class = "button button1">Quiz Two</button></a>
-</div>
-<div class="marginLeft">
-<a href='DisplayQuiz.php' class = "button button1">Quiz Three</button></a>
-</div>>
-<a href='StudentModel.php' class = "block">Go Back</button></a>
-
+</section>
+  <style>
+    body {background-color:  #ac925f;}
+		.card {
+		border: 5px solid black;
+		background-color:  White;
+	}
+    </style>
     </body>
 </html>

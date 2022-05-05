@@ -1,11 +1,11 @@
 <?php session_start(); ?> 
  <?php
  //change as need to match databases in postgresql bench
-$host = "ec2-54-173-77-184.compute-1.amazonaws.com";
-$user = "nqrktkrhwsacrx";
+$host = "ec2-54-204-56-171.compute-1.amazonaws.com";
+$user = "cfroimuroniqbj";
 $port = "5432";
-$dbname = "d2sndh45ug1s14";
-$password = "244935e23ffa0329220089ab7e13c7aeb3858ee8e2c4508bdcd675d4a7079497";
+$dbname = "d2bljp697b90oh";
+$password = "3ad56a1abe8412e3979219f2794c88d5d0fb6ca727ba94e8976dbe5493a2b2d5";
 // Create connection
 $conn = "pgsql:host=" . $host . ";port=" . $port . ";dbname=" . $dbname . ";user=" . $user  . ";password=" . $password;
 // Check connection

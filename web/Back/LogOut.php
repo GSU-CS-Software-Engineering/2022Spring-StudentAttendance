@@ -1,4 +1,5 @@
 <?php 
-session_destroy();
-header('location: LoginPage.html');
-  ?>
+  session_unset();
+  session_destroy();
+  header('location: LoginPage.html');
+?>

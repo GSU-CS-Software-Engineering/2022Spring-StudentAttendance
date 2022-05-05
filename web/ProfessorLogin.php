@@ -3,6 +3,33 @@
 <html>
 <body>
 <style>
+
+.center {
+
+  text-align: center;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto; 
+ 
+}
+
+.button {
+  color: #021f3f;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 3em;
+  width: 8em;
+  font-size: large;
+  font-weight: 600;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
@@ -58,12 +85,16 @@ body {background-image: url('GreenBackground.jpg');
 }
 
  </style>
+
+ <div class = "content center">
 <form action="Back/ProfessorVerify.php" method="post">
 <input type="text" name="Pname" placeholder="Professor ID"><br>
  <input type="text" name="pass" placeholder="Password"><br>
-<input type="submit">
+<input type="submit" class = "button content">
 </form>
-<a href='index.php' class = "block">Go Back</button></a>
+<a href='index.php' class = "button content">Go Back</button></a>
+<img src="PP3.jpg" width="2000" height="400" class = "content">
 
+</div>
 </body>
 </html>
